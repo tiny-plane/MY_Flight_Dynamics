@@ -4,6 +4,6 @@ int main()
 {
 
 	///写自己的代码
-	cout << "hello world" << endl;
+	cout << "hello oh shit" << endl;
 	return 0;
 }
