@@ -13,4 +13,4 @@ wing W;
 int main(int args, char argv[]);
 bool Draw(void);
 bool Write2avl(void);
-bool Readfromavl
+bool Readfromavl;

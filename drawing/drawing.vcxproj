@@ -121,6 +121,20 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="base.cpp" />
+    <ClCompile Include="Keybord_Fun.cpp" />
+    <ClCompile Include="Mouse_Fun.cpp" />
+    <ClCompile Include="openGL_maincode.cpp" />
+    <ClCompile Include="var.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base.h" />
+    <ClInclude Include="Keybord_Fun.h" />
+    <ClInclude Include="Mouse_Fun.h" />
+    <ClInclude Include="openGL_maincode.h" />
+    <ClInclude Include="var.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets" Condition="Exists('..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets')" />
