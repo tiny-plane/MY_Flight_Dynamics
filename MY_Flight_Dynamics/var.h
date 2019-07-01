@@ -28,10 +28,25 @@
 class var
 {
 protected:///属性
-	double p, q, r;
-	double La, Lo, H;
-	double Vx, Vy, Vz;
+	double mass; /// 总质量
+	double add_mass[100]; /// 附加集中质量
+	double surf_mass[100]; /// 均布质量
 
+	double I[3][3] = { {0,0,0},{0,0,0},{0,0,0} };
+
+	double Xref, Yref, Zref;
+
+	double iYsym, iZsym, Zsym;
+
+	double mach;
+
+	double Sref, Cref, Bref;
+
+
+	double CDo = 0.02;
+	double velocity = 10;
+	double density = 1.25;
+	double gravity = 9.8;
 
 
 public: ///方法

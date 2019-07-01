@@ -30,9 +30,6 @@
     <ClInclude Include="control_surface.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="head.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="surface.h">
       <Filter>头文件</Filter>
     </ClInclude>

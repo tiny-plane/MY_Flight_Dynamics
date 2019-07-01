@@ -29,11 +29,13 @@
 
 class wing : public surface
 {
-public: ///属性
+protected: ///属性
 	section* s[100];
+	int num; ///有多少个截面，每次添加注意修改这个的值
 public: ///方法
 	double cac_wing_aera(void);
 	double cac_wing_MAC(void);
+
 	virtual bool build(void);
 public:///debug
 	virtual double debug(int kind_debug);

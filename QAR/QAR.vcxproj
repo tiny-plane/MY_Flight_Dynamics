@@ -18,27 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="surface.h" />
-    <ClInclude Include="main_code.h" />
-    <ClInclude Include="var.h" />
-    <ClInclude Include="wing.h" />
-    <ClInclude Include="section.h" />
-    <ClInclude Include="control_surface.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="surface.cpp" />
-    <ClCompile Include="main_code.cpp" />
-    <ClCompile Include="wing.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D1F88D1D-8728-45B9-81E6-BB27C48BB30D}</ProjectGuid>
-    <RootNamespace>MY_Flight_Dynamics</RootNamespace>
+    <ProjectGuid>{A0E2BD7A-E9FB-43A8-8D49-6D18103A1B6F}</ProjectGuid>
+    <RootNamespace>QAR</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>Plane</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -134,6 +117,8 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
