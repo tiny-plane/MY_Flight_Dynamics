@@ -20,6 +20,7 @@ public:
 
 	double afil[2] = {0.0,1.0};
 	
+
 	
 	int Nspan = 10; ///number of spanwise horseshoe vortices placed on the surface[optional]
 	double Sspace = 1.0;/// spanwise vortex spacing parameter(described later)[optional]
