@@ -25,6 +25,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <math.h>
+#include "section.h"
+
 
 class component
 {
@@ -45,5 +47,9 @@ public: ///属性
 
 public: ///方法	
 	int get_kind(int kind_raw);
-	virtual bool Init_var(); ///各自组建重载自己的初始化方法
+	virtual bool Init_var(void); ///各自组建重载自己的初始化方法
+	virtual bool build(void);
+
+public:///debug*
+	virtual double debug(int kind_debug);
 };

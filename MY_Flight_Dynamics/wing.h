@@ -31,9 +31,12 @@ class wing : public component
 {
 public: /// Ù–‘
 	double chord;
-
+	double Cspace = 1.0; /// chordwise vortex spacing parameter(described later)
+	section* s[100];
 public: ///∑Ω∑®
 	double cac_wing_aera(void);
 	double cac_wing_MAC(void);
-
+	virtual bool build(void);
+public:///debug
+	virtual double debug(int kind_debug);
 };
