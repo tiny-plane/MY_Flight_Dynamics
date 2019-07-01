@@ -3,11 +3,16 @@
 #include <iostream>
 #include <math.h>
 #include "var.h"
-#include "component.h"
+#include "surface.h"
 #include "wing.h"
-#include "wing_tip.h"
+#include "head.h"
+
+template<class T>
+int length(T& arr);
+
 
 wing W;
-wing_tip WT;
-int main();
-bool draw();
+int main(int args, char argv[]);
+bool Draw(void);
+bool Write2avl(void);
+bool Readfromavl

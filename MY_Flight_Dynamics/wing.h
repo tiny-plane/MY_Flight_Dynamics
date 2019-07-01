@@ -25,13 +25,11 @@
 #include <stdio.h>
 #include <iostream>
 #include <math.h>
-#include "component.h"
+#include "surface.h"
 
-class wing : public component
+class wing : public surface
 {
 public: /// Ù–‘
-	double chord;
-	double Cspace = 1.0; /// chordwise vortex spacing parameter(described later)
 	section* s[100];
 public: ///∑Ω∑®
 	double cac_wing_aera(void);

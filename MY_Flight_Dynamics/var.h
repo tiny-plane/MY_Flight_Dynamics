@@ -22,13 +22,12 @@
 ” œ‰£∫823036067@qq.com
 */
 
-#include <stdio.h>
 #include <iostream>
 #include <math.h>
 
 class var
 {
-public: /// Ù–‘
+protected:/// Ù–‘
 	double p, q, r;
 	double La, Lo, H;
 	double Vx, Vy, Vz;

@@ -27,6 +27,6 @@ double wing::cac_wing_aera(void)
 	for (int i = 0; i < this->slices; i++)
 	{
 
-	
+	}
 		return 0;
 }

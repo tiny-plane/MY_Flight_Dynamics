@@ -19,16 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="component.h" />
+    <ClInclude Include="surface.h" />
     <ClInclude Include="main_code.h" />
     <ClInclude Include="var.h" />
     <ClInclude Include="wing.h" />
-    <ClInclude Include="wing_tip.h" />
     <ClInclude Include="section.h" />
     <ClInclude Include="control_surface.h" />
+    <ClInclude Include="head.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="component.cpp" />
+    <ClCompile Include="surface.cpp" />
     <ClCompile Include="main_code.cpp" />
     <ClCompile Include="wing.cpp" />
   </ItemGroup>

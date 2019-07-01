@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="component.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="main_code.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -27,13 +24,16 @@
     <ClInclude Include="wing.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="wing_tip.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="section.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="control_surface.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="head.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="surface.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClCompile Include="wing.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="component.cpp">
+    <ClCompile Include="surface.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
