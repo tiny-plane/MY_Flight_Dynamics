@@ -35,6 +35,7 @@ public: /// Ù–‘
 	double angle;
 public: ///∑Ω∑®
 	double cac_wing_aera(void);
+	bool fresh_data(void);
 	double cac_wing_MAC(void);
 
 	virtual bool build(void);

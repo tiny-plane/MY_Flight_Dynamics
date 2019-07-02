@@ -46,5 +46,11 @@ double wing::cac_wing_aera(void)
 		//std::cout <<"l1 = " <<  l1 << "  l2 =  "<< l2 << "  h =  " << h << "  aera = "<< aera << std::endl;
 		next = next->after;
 	}
-	return aera;
+		return aera;
+}
+bool wing::fresh_data(void)
+{
+	this->set_aera(this->cac_wing_aera());
+	this->set_mac(this->cac_wing_MAC());
+	return true;
 }

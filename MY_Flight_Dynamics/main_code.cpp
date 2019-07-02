@@ -36,7 +36,7 @@ bool Draw(void)
 int main(int args, char argv[])
 {
 	Draw();
-	W.cac_wing_aera();	
+	W.fresh_data();	
 	system("pause");
 	return 0;
 }

@@ -30,10 +30,9 @@
 
 class surface
 {
-public: ///属性
+protected: ///属性
 	char name;
-	section* orisection;
-	section* nowsection;
+
 	enum kind
 	{
 		fuselage,
@@ -78,7 +77,12 @@ public: ///属性
 
 	double scale[3] = { 1, 1, 1 };///scaling factors applied to all x, y, z coordinates
 
-	
+	double aera = 0;
+	double mac = 0;
+public:
+	section* orisection;
+	section* nowsection;
+
 public: ///方法	
 	int get_kind(int kind_raw);
 	virtual bool Init_var(void); ///各自组建重载自己的初始化方法
@@ -91,7 +95,12 @@ public: ///方法
 	void append_section(section& newsection);
 	void init_section(section& init);
 	section* find_section_with_num(int num);
-	void move_nowsection_point(section& in);
+	void move_nowsection_point(section& newnowsection);
+	virtual bool fresh_data(void);
+	double get_aera(void);
+	void set_aera(double aera);
+	double get_mac(void);
+	void set_mac(double mac);
 public:///debug*
 	virtual double debug(int kind_debug);
 };

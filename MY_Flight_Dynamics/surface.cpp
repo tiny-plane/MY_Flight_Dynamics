@@ -64,7 +64,32 @@ section * surface::find_section_with_num(int num)
 	return temp;
 }
 
-void surface::move_nowsection_point(section & in)
+void surface::move_nowsection_point(section & newnowsection)
 {
-	this->nowsection = &in;
+	this->nowsection = &newnowsection;
+}
+
+bool surface::fresh_data(void)
+{
+	return false;
+}
+
+double surface::get_aera(void)
+{
+	return this->aera;
+}
+
+void surface::set_aera(double aera)
+{
+	this->aera = aera;
+}
+
+double surface::get_mac(void)
+{
+	return this->mac;
+}
+
+void surface::set_mac(double mac)
+{
+	this->mac = mac;
 }
