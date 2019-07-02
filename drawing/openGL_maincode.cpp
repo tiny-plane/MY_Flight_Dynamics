@@ -20,22 +20,6 @@ int power_of_two(int n)
 		return 0;
 	return (n & (n - 1)) == 0;
 }
-void spinDisplay(void)
-{
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //清除深度缓冲区
-	glPushMatrix(); //保存当前模型视图矩阵
-	glRotatef(angle, 0.0, 1.0, 0.0);
-	glColor3f(v.red, v.green, v.blue);
-	//glColor3f(red, green, blue);
-	glBegin(GL_TRIANGLES);
-	glVertex3f(-0.5, -0.5, 0.0);
-	glVertex3f(0.5, 0.0, 0.0);
-	glVertex3f(0.0, 0.5, 0.0);
-	glEnd();
-	glPopMatrix(); // 弹出堆栈
-	glutSwapBuffers();  // 交换缓冲区
-	angle += v.deltaAngle;
-}
 void processNormalKeys(unsigned char key, int x, int y)
 {
 	//cout << int(key) << endl;
@@ -233,18 +217,6 @@ void processMenuEvents_set(int option)
 		v.enable_SMOOTH = false;
 		break;
 	}
-}
-void Circle()
-{
-	glBegin(GL_TRIANGLE_FAN);//扇形连续填充三角形串  
-	glVertex3f(0.0f, 0.0f, 0.0f);
-	int i = 0;
-	for (i = 0; i <= 390; i += 15)
-	{
-		float p = i * 3.14f / 180.0f;
-		glVertex3f(sin(p), cos(p), 0.0f);
-	}
-	glEnd();
 }
 void centreline(float length, float xo, float yo, float zo, bool xd, bool yd, bool zd)
 {

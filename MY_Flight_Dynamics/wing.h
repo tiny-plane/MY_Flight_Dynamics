@@ -29,9 +29,10 @@
 
 class wing : public surface
 {
-protected: ///属性
-	section* s[100];
+public: ///属性
+
 	int num; ///有多少个截面，每次添加注意修改这个的值
+	double angle;
 public: ///方法
 	double cac_wing_aera(void);
 	double cac_wing_MAC(void);

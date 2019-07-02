@@ -30,8 +30,10 @@
 
 class surface
 {
-protected: ///属性
+public: ///属性
 	char name;
+	section* orisection;
+	section* nowsection;
 	enum kind
 	{
 		fuselage,
@@ -81,7 +83,24 @@ public: ///方法
 	int get_kind(int kind_raw);
 	virtual bool Init_var(void); ///各自组建重载自己的初始化方法
 	virtual bool build(void);
-
+	template <class T> T dec2rad(T in);
+	template <class T> T rad2dec(T in);
+	void connet_section(section& front, section& after);
+	void insert_section(section& front, section& newsection, section& after);
+	void delete_section(section& front, section& deletesection, section& after);
+	void append_section(section& newsection);
+	void init_section(section& init);
 public:///debug*
 	virtual double debug(int kind_debug);
 };
+
+template <class T>
+inline T surface::dec2rad(T in)
+{
+	return in / 180 * 3.141592653;
+}
+template <class T>
+inline T surface::rad2dec(T in)
+{
+	return in * 180 / 3.141592653;
+}
