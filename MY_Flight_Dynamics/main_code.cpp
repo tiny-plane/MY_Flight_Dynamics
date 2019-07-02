@@ -36,11 +36,7 @@ bool Draw(void)
 int main(int args, char argv[])
 {
 	Draw();
-
-	//std::cout << W.orisection << std::endl;
-	//std::cout << W.orisection ->after<< std::endl;
-	//std::cout << W.orisection->after->after << std::endl;
-	std::cout << W.cac_wing_aera() << std::endl;
+	W.cac_wing_aera();
 	system("pause");
 	return 0;
 }
