@@ -33,6 +33,9 @@
     <ClInclude Include="surface.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="file_oper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_code.cpp">
@@ -42,6 +45,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="surface.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="file_oper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="var.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

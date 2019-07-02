@@ -25,10 +25,13 @@
     <ClInclude Include="wing.h" />
     <ClInclude Include="section.h" />
     <ClInclude Include="control_surface.h" />
+    <ClInclude Include="file_oper.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="file_oper.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="main_code.cpp" />
+    <ClCompile Include="var.cpp" />
     <ClCompile Include="wing.cpp" />
   </ItemGroup>
   <ItemGroup>

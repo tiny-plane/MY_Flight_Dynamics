@@ -1,5 +1,5 @@
 #include "main_code.h"
-#include <iostream>
+
 
 bool Draw(void)
 {
@@ -35,10 +35,11 @@ bool Draw(void)
 }
 int main(int args, char argv[])
 {
-	Draw();
-	W.fresh_data();	
-	std::cout << W.get_aera() << std::endl;
-	std::cout << W.get_mac() << std::endl;
+	/*Draw();
+	W.fresh_data();	*/
+	file_oper F;
+	string str = "D:\\MY_Flight_Dynamics\\MY_Flight_Dynamics\\data";	
+	F.build_run(str,v);
 	system("pause");
 	return 0;
 }
