@@ -3,7 +3,7 @@
 #include <string>
 typedef struct
 {
-	int type = 0;//如果type =1 ,afilname为从外部输入的dat文件名，如'HN.dat"，如果type=0，afilname为NACA翼型的编号，如"0012"
+	int type = 1;//如果type =1 ,afilname为从外部输入的dat文件名，如'HN.dat"，如果type=0，afilname为NACA翼型的编号，如"0012"
 	std::string afilname = "NACA0012.dat";
 }Afil;
 
@@ -14,10 +14,10 @@ typedef struct
 }Control;
 class section
 {
-private:
+public:
 	int num;/// 编号
-	double chord;
-	double pos[3]; /// 前缘坐标 xyz
+	double chord=1;
+	double pos[3] = {0.0,0.0,0.0}; /// 前缘坐标 xyz
 				   /*Coordinate system
 				   ---------------- -
 				   The geometry is described in the following Cartesian system :
@@ -30,8 +30,8 @@ private:
 				   this file is referred to as "Lunit".This is arbitrary,
 				   but must be the same throughout this file*/
 	Afil afil;
-	int Nspan = 10; ///number of spanwise horseshoe vortices placed on the surface[optional]
-	double Sspace = 1.0;/// spanwise vortex spacing parameter(described later)[optional]
+	int Nspan = 5; ///number of spanwise horseshoe vortices placed on the surface[optional]
+	int Sspace = 1;/// spanwise vortex spacing parameter(described later)[optional]
 	double ainc = 0;///扭转角
 	Control control;
 
@@ -61,11 +61,11 @@ public:
 	{
 		return this->afil;
 	}
-	double Get_Nspan() const
+	int Get_Nspan() const
 	{
 		return this->Nspan;
 	}
-	double Get_Sspace() const
+	int Get_Sspace() const
 	{
 		return this->Sspace;
 	}
@@ -93,6 +93,8 @@ public:
 	{
 		this->ainc = ainc;
 	}
+	void Set_afil_type(double kind);
+	void Set_afil_afilname(std::string name);
 	bool Add_control(control_surface* control)
 	{
 		if (this->control.num == 10)

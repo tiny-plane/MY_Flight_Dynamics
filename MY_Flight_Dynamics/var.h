@@ -73,5 +73,21 @@ public: ///·½·¨
 	double get_Ixy(void);
 	double get_Iyz(void);
 	double get_Izx(void);
+
+	void set_alpha(double alpha);
+	void set_beta(double beta);
+	void set_mach(double in);
+	void set_velocity(double in);
+	void set_Xref(double in);
+	void set_Yref(double in);
+	void set_Zref(double in);
+	void set_Sref(double in);
+	void set_Cref(double in);
+	void set_Bref(double in);
+	void set_mass(double in);
+	void set_density(double in);
+	void set_gravity(double in);
+	void set_CDo(double in);
+	void set_I(double Ixx,double Iyy,double Izz,double Ixy,double Iyz,double Izx);
 	std::string get_name(void);
 };

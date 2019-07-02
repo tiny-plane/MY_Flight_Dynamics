@@ -36,6 +36,9 @@
     <ClInclude Include="file_oper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="sta.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_code.cpp">
@@ -51,6 +54,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="var.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="section.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sta.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

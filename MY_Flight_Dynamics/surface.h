@@ -26,23 +26,23 @@
 #include <iostream>
 #include <math.h>
 #include "section.h"
-
+#include <string>
+#include "var.h"
 
 class surface
 {
 protected: ///属性
-	char name;
+	std::string name;
 
 	enum kind
 	{
 		fuselage,
 		wing,
-		h_sta,
-		v_sta
+		sta
 	};
-	int slices; /// 截面数量
+	int slices=0; /// 截面数量
 	int Nchord = 10; ///number of chordwise horseshoe vortices placed on the surface
-	double Cspace = 0; ///chordwise vortex spacing parameter(described later)
+	double Cspace = 1.0; ///chordwise vortex spacing parameter(described later)
 
 	bool nowake = false;
 	/*The NOWAKE keyword specifies that this surface is to NOT shed a wake,
@@ -66,7 +66,7 @@ protected: ///属性
 
 
 	bool yduplicate = false;
-
+	int index = 3;
 	int component = 1;
 
 	double  translate[3] = { 0,0,0 };
@@ -76,9 +76,10 @@ protected: ///属性
     dX,dY,dZ =  offset added on to all X,Y,Z values in this surface. 	*/
 
 	double scale[3] = { 1, 1, 1 };///scaling factors applied to all x, y, z coordinates
-
+	double angle = 0;
 	double aera = 0;
 	double mac = 0;
+	double spanlen = 1;
 public:
 	section* orisection;
 	section* nowsection;
@@ -98,9 +99,24 @@ public: ///方法
 	void move_nowsection_point(section& newnowsection);
 	virtual bool fresh_data(void);
 	double get_aera(void);
+	double get_Cspace(void);
+	int get_slices(void);
+	int get_Nchord(void);
+	double get_spanlen(void);
+	void set_spanlen(double spanlen);
 	void set_aera(double aera);
+	int get_index(void);
+	double get_angle(void);
+	std::string get_name(void);
 	double get_mac(void);
 	void set_mac(double mac);
+	void set_index(int index);
+	void set_angle(double angle);
+	void set_name(std::string name);
+	void updata_aera(var& v);
+	void updata_mac(var& v);
+	void updata_spanlen(var& v);
+	void updata2var(var& v);
 public:///debug*
 	virtual double debug(int kind_debug);
 };

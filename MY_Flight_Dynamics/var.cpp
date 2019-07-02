@@ -8,6 +8,7 @@ bool var::Init_var(void)
 void var::fresh_var(void)
 {
 	this->mach = this->velocity / this->local_speedofsound;
+	
 }
 
 double var::get_alpha(void)
@@ -109,6 +110,87 @@ double var::get_Izx(void)
 {
 	return this->I[0][2];
 }
+
+void var::set_alpha(double alpha)
+{
+	this->alpha = alpha;
+}
+
+void var::set_beta(double beta)
+{
+	this->beta = beta;
+}
+
+void var::set_mach(double mach)
+{
+	this->mach = mach;
+}
+
+void var::set_velocity(double in)
+{
+	this->velocity = in;
+}
+
+void var::set_Xref(double in)
+{
+	this->Xref = in;
+}
+
+void var::set_Yref(double in)
+{
+	this->Yref = in;
+}
+
+void var::set_Zref(double in)
+{
+	this->Zref = in;
+}
+
+void var::set_Sref(double in)
+{
+	this->Sref = in;
+}
+
+void var::set_Cref(double in)
+{
+	this->Cref = in;
+}
+
+void var::set_Bref(double in)
+{
+	this->Bref = in;
+}
+
+void var::set_mass(double in)
+{
+	this->mass = in;
+}
+
+void var::set_density(double in)
+{
+	this->density = in;
+}
+
+void var::set_gravity(double in)
+{
+	this->gravity = in;
+}
+
+void var::set_CDo(double in)
+{
+	this->CDo = in;
+}
+
+void var::set_I(double Ixx, double Iyy, double Izz, double Ixy, double Iyz, double Izx)
+{
+	this->I[0][0] = Ixx;
+	this->I[1][1] = Iyy;
+	this->I[2][2] = Izz;
+	this->I[0][1] = Ixy;
+	this->I[1][2] = Iyz;
+	this->I[0][2] = Izx;
+}
+
 
 std::string var::get_name(void)
 {

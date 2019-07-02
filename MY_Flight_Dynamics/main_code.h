@@ -4,6 +4,7 @@
 #include "var.h"
 #include "surface.h"
 #include "wing.h"
+#include "sta.h"
 #include "file_oper.h"
 #include <string>
 #include <fstream>
@@ -13,6 +14,7 @@ int length(T& arr);
 
 var v;
 wing W;
+sta st;
 int main(int args, char argv[]);
 bool Draw(void);
 bool Write2avl(void);

@@ -1,6 +1,6 @@
-#include "wing.h"
+#include "sta.h"
 
-double wing::debug(int kind_debug)
+double sta::debug(int kind_debug)
 {
 	switch (kind_debug)
 	{
@@ -14,11 +14,11 @@ double wing::debug(int kind_debug)
 	}
 	return 0;
 }
-bool wing::build(void)
+bool sta::build(void)
 {
 	return true;
 }
-double wing::cac_wing_aera(void)
+double sta::cac_wing_aera(void)
 {
 	//slices至少有1个，显示的数量就是准确的截面数量，但这里索引的时候注意。
 
@@ -44,9 +44,9 @@ double wing::cac_wing_aera(void)
 		//std::cout <<"l1 = " <<  l1 << "  l2 =  "<< l2 << "  h =  " << h << "  aera = "<< aera << std::endl;
 		next = next->after;
 	}
-		return 2.0 * aera;
+	return 2.0 * aera;
 }
-bool wing::fresh_data(void)
+bool sta::fresh_data(void)
 {
 	this->set_aera(this->cac_wing_aera());
 	this->set_mac(this->cac_wing_MAC());
@@ -54,7 +54,7 @@ bool wing::fresh_data(void)
 	return true;
 }
 
-double wing::cac_wing_MAC(void)
+double sta::cac_wing_MAC(void)
 {
 	if (this->slices < 2)
 	{
@@ -79,7 +79,7 @@ double wing::cac_wing_MAC(void)
 	return 2.0 * integration / this->get_aera();
 }
 
-double wing::cac_wing_span_length(void)
+double sta::cac_wing_span_length(void)
 {
 	return 2.0 * this->nowsection->Get_pos()[1];
 }

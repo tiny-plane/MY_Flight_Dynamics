@@ -26,13 +26,16 @@
     <ClInclude Include="section.h" />
     <ClInclude Include="control_surface.h" />
     <ClInclude Include="file_oper.h" />
+    <ClInclude Include="sta.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="file_oper.cpp" />
+    <ClCompile Include="section.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="main_code.cpp" />
     <ClCompile Include="var.cpp" />
     <ClCompile Include="wing.cpp" />
+    <ClCompile Include="sta.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

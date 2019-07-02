@@ -27,7 +27,7 @@
 #include <math.h>
 #include "surface.h"
 #include <string>
-class wing : public surface
+class sta : public surface
 {
 public: /// Ù–‘
 
