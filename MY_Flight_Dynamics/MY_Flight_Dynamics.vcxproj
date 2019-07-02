@@ -34,6 +34,11 @@
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\drawing\drawing.vcxproj">
+      <Project>{cb028669-ffa8-4fba-ac12-c5c37f2f27fa}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D1F88D1D-8728-45B9-81E6-BB27C48BB30D}</ProjectGuid>
     <RootNamespace>MY_Flight_Dynamics</RootNamespace>
