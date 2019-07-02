@@ -48,3 +48,23 @@ void surface::init_section(section& init)
 	this->slices = 1;
 	this->nowsection = &init;
 }
+
+section * surface::find_section_with_num(int num)
+{
+	if (num >= this->slices)
+	{
+		return nullptr;
+	}
+	section* temp;
+	temp = this->orisection;
+	for (int i = 1; i < num; i++)
+	{
+		temp = temp->after;
+	}
+	return temp;
+}
+
+void surface::move_nowsection_point(section & in)
+{
+	this->nowsection = &in;
+}

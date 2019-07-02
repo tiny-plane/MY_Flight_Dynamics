@@ -90,6 +90,8 @@ public: ///·½·¨
 	void delete_section(section& front, section& deletesection, section& after);
 	void append_section(section& newsection);
 	void init_section(section& init);
+	section* find_section_with_num(int num);
+	void move_nowsection_point(section& in);
 public:///debug*
 	virtual double debug(int kind_debug);
 };
