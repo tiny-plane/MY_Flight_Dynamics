@@ -462,7 +462,7 @@ void file_oper::build_avl(string filepath, var v, wing w, sta st)
 	}
 }
 
-void file_oper::build_cacfile(string filepath, string avlname,string runname)
+void file_oper::build_cacfile(string filepath, string avlname,string runname,string stname)
 {
 	string str = filepath;
 	str.append("\\");
@@ -486,15 +486,15 @@ void file_oper::build_cacfile(string filepath, string avlname,string runname)
 	this->writefile(str);
 
 	str = "";
-	str.append(avlname);
+	str.append(stname);
 	str.append(".txt");
 	this->writefile(str);
 	
-	str = "O";
-	this->writefile(str);
+//	str = "O";
+//	this->writefile(str);
 
-	str = "";
-	this->writefile(str);
+//	str = "";
+//	this->writefile(str);
 }
 
 FILE* file_oper::get_file_point(void)

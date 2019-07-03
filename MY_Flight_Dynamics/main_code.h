@@ -9,6 +9,7 @@
 #include <string>
 #include <fstream>
 #include<windows.h>
+#include <thread>
 #pragma warning(disable:4996)
 template<class T>
 int length(T& arr);

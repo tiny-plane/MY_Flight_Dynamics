@@ -20,7 +20,7 @@ public:
 	void writefile(string str);
 	void build_run(string filepath,var v);
 	void build_avl(string filepath,var v,wing w,sta st);
-	void build_cacfile(string filepath, string avlname,string runname);
+	void build_cacfile(string filepath, string avlname,string runname,string stname);
 	void build_cmd(string filepath, string);
 	FILE* get_file_point(void);
 };

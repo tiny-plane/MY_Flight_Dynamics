@@ -82,7 +82,7 @@ bool Draw(void)
 	st.set_index(4);
 	st.set_angle(0);
 	st.set_Nchord(11);
-	
+
 	//1
 	news = new section;
 	pos[0] = 0.45;
@@ -113,7 +113,7 @@ bool Draw(void)
 	return false;
 }
 
-void draw_round(double houlue,double yishaohoulue)
+void draw_round(double houlue, double yishaohoulue)
 {
 	double pos[3] = { -0.14 ,0.0 , 0.0 };
 
@@ -224,26 +224,28 @@ void draw_round(double houlue,double yishaohoulue)
 
 	return;
 }
-void round_build(std::string str )
+void round_build(std::string str)
 {
 	file_oper F;
-	//RemoveDirectory(str.c_str());
-	CreateDirectory(str.c_str(), NULL);
+	//CreateDirectory(str.c_str(), NULL);
 	string temp = "";
 	string avlname = str;
 	string runname = str;
-	string cmdname = str;
+	string cmdname = "";
 	string inname = str;
+	string stname = str;
+	cmdname.append(str);
 	inname.append("\\cac.in");
 	cmdname.append("\\avl.cmd");
 	runname.append("\\test.run");
 	double d1 = 0;
 	double d2 = 0;
-	for (d1 = 0; d1 <= 0.2; d1 += 0.02)
+	for (d1 = 0; d1 <= 0; d1 += 0.02)
 	{
-		for (d2 = -0.1; d2 <= 0.1; d2 += 0.02)
-		{			
+		for (d2 = -0.3; d2 <= -0.1; d2 += 0.02)
+		{
 			avlname = str;
+			stname = str;
 			temp = "";
 			temp.append("d1_");
 			temp.append(to_string(d1));
@@ -257,8 +259,59 @@ void round_build(std::string str )
 			avlname.append("\\");
 			avlname.append(temp);
 			avlname.append(".avl");
+			stname.append("\\");
+			stname.append(temp);
+			cout << cmdname.c_str() << endl;
+			F.build_cacfile(str, avlname, runname,stname);
+			SetCurrentDirectory(str.c_str());
+			system(cmdname.c_str());
+			//F.build_run(str, v);
+			//delete &W;
+			//delete &st;
+		}
+	}
+
+}
+void round_build2(std::string str)
+{
+	file_oper F;
+	//RemoveDirectory(str.c_str());
+	//CreateDirectory(str.c_str(), NULL);
+	string temp = "";
+	string avlname = str;
+	string runname = str;
+	string cmdname = str;
+	string inname = str;
+	string stname = str;
+	inname.append("\\cac.in");
+	cmdname.append("\\avl.cmd");
+	runname.append("\\test.run");
+	double d1 = 0;
+	double d2 = 0;
+	for (d1 = 0.02; d1 <= 0.02; d1 += 0.02)
+	{
+		for (d2 = -0.3; d2 <= -0.1; d2 += 0.02)
+		{
+			avlname = str;
+			stname = str;
+			temp = "";
+			temp.append("d1_");
+			temp.append(to_string(d1));
+			temp.append("d2_");
+			temp.append(to_string(d2));
+			v.set_name(temp);
+			W = *(new wing);
+			st = *(new sta);
+			draw_round(d1, d2);
+			F.build_avl(str, v, W, st);
+			avlname.append("\\");
+			avlname.append(temp);
+			avlname.append(".avl");
+			stname.append("\\");
+			stname.append(temp);
 			//cout << cmdname.c_str() << endl;
-			F.build_cacfile(str, avlname, runname);
+			F.build_cacfile(str, avlname, runname,stname);
+			SetCurrentDirectory(str.c_str());
 			system(cmdname.c_str());
 			//F.build_run(str, v);
 			//delete &W;
@@ -269,11 +322,12 @@ void round_build(std::string str )
 }
 int main(int args, char argv[])
 {
+
 	v.set_Xref(0.131);
 	v.set_Yref(0.0);
 	v.set_Zref(0.04);
 	v.set_density(1.1655);
-	v.set_I(1.57,0.048,1.598,0,0,0.003);
+	v.set_I(1.57, 0.048, 1.598, 0, 0, 0.003);
 	v.set_Sref(1.013);
 	v.set_Cref(0.294);
 	v.set_Bref(3.49);
@@ -281,9 +335,14 @@ int main(int args, char argv[])
 	//W.updata2var(v);
 	v.fresh_var();
 	string str = { "D:\\MY_Flight_Dynamics\\double_houlue" };
-	round_build(str);
+	string s1 = "D:\\MY_Flight_Dynamics\\double_houlue2";
+	string s2 = "D:\\MY_Flight_Dynamics\\double_houlue3";
+	//round_build(s1);
+	thread t1(round_build, s1);
+	thread t2(round_build2, s2);
 
-
+	t1.join();
+	t2.join();
 	system("pause");
 	return 0;
 }
