@@ -85,6 +85,7 @@ public:
 	section* nowsection;
 
 public: ///方法	
+	~surface(void);
 	int get_kind(int kind_raw);
 	virtual bool Init_var(void); ///各自组建重载自己的初始化方法
 	virtual bool build(void);
@@ -113,6 +114,7 @@ public: ///方法
 	void set_index(int index);
 	void set_angle(double angle);
 	void set_name(std::string name);
+	void set_Nchord(int Nchord);
 	void updata_aera(var& v);
 	void updata_mac(var& v);
 	void updata_spanlen(var& v);

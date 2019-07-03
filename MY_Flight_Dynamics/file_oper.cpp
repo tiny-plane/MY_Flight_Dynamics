@@ -2,7 +2,8 @@
 
 void file_oper::build_file(string filename)
 {
-	const char* p = filename.c_str();
+	this->ofile.close();
+	const char* p = filename.c_str();	
 	this->file = fopen(p, "r+");
 	this->ofile.open(filename);
 }
@@ -335,7 +336,6 @@ void file_oper::build_avl(string filepath, var v, wing w, sta st)
 			this->writefile(str);
 			str = "";
 			str.append(temp.afilname);
-			str.append(".dat");
 			this->writefile(str);
 			break;
 		case 1:
@@ -350,8 +350,12 @@ void file_oper::build_avl(string filepath, var v, wing w, sta st)
 		next = next->after;
 	}
 
+	
 	////////////////
 	str = "";
+	this->writefile(str);
+
+	str = "#=================================================";
 	this->writefile(str);
 
 	str = "SURFACE                      | (keyword)";
@@ -440,7 +444,6 @@ void file_oper::build_avl(string filepath, var v, wing w, sta st)
 			this->writefile(str);
 			str = "";
 			str.append(temp.afilname);
-			str.append(".dat");
 			this->writefile(str);
 			break;
 		case 1:
@@ -453,7 +456,45 @@ void file_oper::build_avl(string filepath, var v, wing w, sta st)
 			break;
 		}
 		next = next->after;
+
+		this->writefile(std::string("CONTROL"));
+		this->writefile(std::string("elevator 1 0 0 .0 .0 1"));
 	}
+}
+
+void file_oper::build_cacfile(string filepath, string avlname,string runname)
+{
+	string str = filepath;
+	str.append("\\");
+	str.append("cac.in");
+	this->build_file(str);
+	str = "load ";
+	str.append(avlname);
+	this->writefile(str);
+
+	str = "case ";
+	str.append(runname);
+	this->writefile(str);
+
+	str = "oper";
+	this->writefile(str);
+
+	str = "x";
+	this->writefile(str);
+
+	str = "st";
+	this->writefile(str);
+
+	str = "";
+	str.append(avlname);
+	str.append(".txt");
+	this->writefile(str);
+	
+	str = "O";
+	this->writefile(str);
+
+	str = "";
+	this->writefile(str);
 }
 
 FILE* file_oper::get_file_point(void)

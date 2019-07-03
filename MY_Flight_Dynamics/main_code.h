@@ -8,6 +8,7 @@
 #include "file_oper.h"
 #include <string>
 #include <fstream>
+#include<windows.h>
 #pragma warning(disable:4996)
 template<class T>
 int length(T& arr);

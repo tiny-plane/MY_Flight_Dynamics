@@ -181,6 +181,11 @@ void var::set_CDo(double in)
 	this->CDo = in;
 }
 
+void var::set_name(std:: string name)
+{
+	this->name = name;
+}
+
 void var::set_I(double Ixx, double Iyy, double Izz, double Ixy, double Iyz, double Izx)
 {
 	this->I[0][0] = Ixx;

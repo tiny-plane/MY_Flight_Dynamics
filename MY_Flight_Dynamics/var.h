@@ -88,6 +88,7 @@ public: ///·½·¨
 	void set_density(double in);
 	void set_gravity(double in);
 	void set_CDo(double in);
+	void set_name(std::string name);
 	void set_I(double Ixx,double Iyy,double Izz,double Ixy,double Iyz,double Izx);
 	std::string get_name(void);
 };

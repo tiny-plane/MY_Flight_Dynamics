@@ -1,4 +1,8 @@
 #include "surface.h"
+surface::~surface(void)
+{
+	//this->nowsection = this->orisection;
+}
 int surface::get_kind(int kind_raw)
 {
 	return 0;
@@ -151,6 +155,11 @@ void surface::set_angle(double angle)
 void surface::set_name(std::string name)
 {
 	this->name = name;
+}
+
+void surface::set_Nchord(int Nchord)
+{
+	this->Nchord = Nchord;
 }
 
 void surface::updata_aera(var & v)
