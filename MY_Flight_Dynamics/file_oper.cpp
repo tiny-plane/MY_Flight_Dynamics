@@ -1,11 +1,23 @@
 #include "file_oper.h"
 
-void file_oper::build_file(string filename)
+bool file_oper::build_file(string filename)
 {
-	this->ofile.close();
-	const char* p = filename.c_str();	
-	this->file = fopen(p, "r+");
+	if (this->file != NULL)
+	{
+		fclose(this->file);
+		this->ofile.close();
+	}
+	const char* p = filename.c_str();
+	this->file = this->file = fopen(p, "w+");
 	this->ofile.open(filename);
+	if (this->file == NULL)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
 }
 
 void file_oper::finish_file(void)
@@ -194,14 +206,20 @@ void file_oper::build_run(string filepath, var v)
 	this->finish_file();
 }
 
-void file_oper::build_avl(string filepath, var v, wing w, sta st)
+bool file_oper::build_avl(string filepath, var v, wing w, sta st, string addition)
 {
+	bool re = false;
+
 	string str = filepath;
 	str.append("\\");
 	str.append(v.get_name());
 	str.append(".avl");
 	v.fresh_var();
-	this->build_file(str);
+	re = this->build_file(str);
+
+	str = "# # Note : ";
+	str.append(addition);
+	this->writefile(str);
 
 	str = "# # Note : This is a automatic build document from DWC";
 	this->writefile(str);
@@ -305,7 +323,7 @@ void file_oper::build_avl(string filepath, var v, wing w, sta st)
 	{
 		str = "";
 		this->writefile(str);
-		
+
 		str = "SECTION                                                     |  (keyword)";
 		this->writefile(str);
 
@@ -328,7 +346,7 @@ void file_oper::build_avl(string filepath, var v, wing w, sta st)
 
 		str = "AFIL 0.0 1.0";
 		this->writefile(str);
-		Afil temp = next->Get_afil();		
+		Afil temp = next->Get_afil();
 		switch (temp.type)
 		{
 		case 0:
@@ -350,7 +368,7 @@ void file_oper::build_avl(string filepath, var v, wing w, sta st)
 		next = next->after;
 	}
 
-	
+
 	////////////////
 	str = "";
 	this->writefile(str);
@@ -460,9 +478,10 @@ void file_oper::build_avl(string filepath, var v, wing w, sta st)
 		this->writefile(std::string("CONTROL"));
 		this->writefile(std::string("elevator 1 0 0 .0 .0 1"));
 	}
+	return re;
 }
 
-void file_oper::build_cacfile(string filepath, string avlname,string runname,string stname)
+void file_oper::build_cacfile(string filepath, string avlname, string runname, string stname)
 {
 	string str = filepath;
 	str.append("\\");
@@ -489,15 +508,58 @@ void file_oper::build_cacfile(string filepath, string avlname,string runname,str
 	str.append(stname);
 	str.append(".txt");
 	this->writefile(str);
-	
-//	str = "O";
-//	this->writefile(str);
 
-//	str = "";
-//	this->writefile(str);
+	str = "O";
+	this->writefile(str);
+
+	//	str = "";
+	//	this->writefile(str);
+}
+
+void file_oper::build_cmd(string filepath)
+{
+	string str = filepath;
+	str.append("\\");
+	str.append("avl.cmd");
+	this->build_file(str);
+
+	str = filepath;
+	str.append("\\avl.exe < ");
+	str.append(filepath);
+	str.append("\\cac.in");
+	this->writefile(str);
 }
 
 FILE* file_oper::get_file_point(void)
 {
 	return file;
+}
+
+int file_oper::CopyFile(char *SourceFile, char *NewFile) {
+	std::ifstream in;
+	std::ofstream out;
+	in.open(SourceFile, std::ios::binary);//打开源文件	
+	if (in.fail())//打开源文件失败	
+	{
+		std::cout << "Error 1: Fail to open the source file." << std::endl;
+		in.close();
+		out.close();
+		return 0;
+	}
+	out.open(NewFile, std::ios::binary);//创建目标文件	
+	if (out.fail())//创建文件失败	
+	{
+		std::cout << "Error 2: Fail to create the new file." << std::endl;
+		out.close();
+		in.close();
+		return 0;
+	}
+	else//复制文件	
+	{
+		out << in.rdbuf();
+		out.close();
+		in.close();
+		return 1;
+	}
+
 }

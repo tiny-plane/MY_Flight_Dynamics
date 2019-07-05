@@ -1,6 +1,7 @@
 #include "surface.h"
 surface::~surface(void)
 {
+	//std::cout << "distroy" << std::endl;
 	//this->nowsection = this->orisection;
 }
 int surface::get_kind(int kind_raw)
@@ -14,6 +15,7 @@ bool surface::Init_var(void)
 
 bool surface::build(void)
 {
+
 	return false;
 }
 

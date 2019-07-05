@@ -1,7 +1,7 @@
 #include "main_code.h"
 
 
-bool Draw(void)
+bool Draw(wing& W , sta& st)
 {
 	double pos[3] = { -0.14 ,0.0 , 0.0 };
 
@@ -23,6 +23,7 @@ bool Draw(void)
 	news->Set_afil_type(1);
 	news->Set_afil_afilname(std::string("JS.dat"));
 	W.init_section(*news);
+	delete(news);
 	//2
 	news = new section;
 	pos[0] = -0.065;
@@ -36,6 +37,7 @@ bool Draw(void)
 	news->Set_afil_type(0);
 	news->Set_afil_afilname(std::string("0030"));
 	W.append_section(*news);
+	delete(news);
 	//3
 	news = new section;
 	pos[0] = 0.0;
@@ -49,6 +51,7 @@ bool Draw(void)
 	news->Set_afil_type(1);
 	news->Set_afil_afilname(std::string("NF.dat"));
 	W.append_section(*news);
+	delete(news);
 	//4
 	news = new section;
 	pos[0] = 0.1083;
@@ -62,6 +65,7 @@ bool Draw(void)
 	news->Set_afil_type(1);
 	news->Set_afil_afilname(std::string("NF.dat"));
 	W.append_section(*news);
+	delete(news);
 
 	//5
 	news = new section;
@@ -76,6 +80,7 @@ bool Draw(void)
 	news->Set_afil_type(1);
 	news->Set_afil_afilname(std::string("NF.dat"));
 	W.append_section(*news);
+	delete(news);
 
 
 	st.set_name(std::string("vsta"));
@@ -96,6 +101,7 @@ bool Draw(void)
 	news->Set_afil_type(1);
 	news->Set_afil_afilname(std::string("NACA0012.dat"));
 	st.init_section(*news);
+	delete(news);
 	//2
 	news = new section;
 	pos[0] = 0.65;
@@ -109,13 +115,13 @@ bool Draw(void)
 	news->Set_afil_type(1);
 	news->Set_afil_afilname(std::string("NACA0012.dat"));
 	st.append_section(*news);
-
+	delete(news);
 	return false;
 }
 
-void draw_round(double houlue, double yishaohoulue)
+void draw_round(double houlue, double yishaohoulue, double shangfan, double yishaoshangfan, wing& W, sta& st)
 {
-	double pos[3] = { -0.14 ,0.0 , 0.0 };
+	double pos[3] = { 0.0 ,0.0 , 0.0 };
 
 	W.set_index(3);
 	W.set_angle(3);
@@ -165,7 +171,7 @@ void draw_round(double houlue, double yishaohoulue)
 	news = new section;
 	pos[0] = 0.1083 + houlue;
 	pos[1] = 1.5916;
-	pos[2] = 0.1550;
+	pos[2] = 0.1550 + shangfan;
 	news->Set_pos(pos);
 	news->Set_chord(0.3);
 	news->Set_ainc(-0.5);
@@ -179,7 +185,7 @@ void draw_round(double houlue, double yishaohoulue)
 	news = new section;
 	pos[0] = 0.2513 + houlue + yishaohoulue;
 	pos[1] = 1.7448;
-	pos[2] = 0.0188;
+	pos[2] = 0.0188 + shangfan + yishaoshangfan;
 	news->Set_pos(pos);
 	news->Set_chord(0.1);
 	news->Set_ainc(0.0);
@@ -224,105 +230,9 @@ void draw_round(double houlue, double yishaohoulue)
 
 	return;
 }
-void round_build(std::string str)
+void round_build(std::string str, int threadnum)
 {
-	file_oper F;
-	//CreateDirectory(str.c_str(), NULL);
-	string temp = "";
-	string avlname = str;
-	string runname = str;
-	string cmdname = "";
-	string inname = str;
-	string stname = str;
-	cmdname.append(str);
-	inname.append("\\cac.in");
-	cmdname.append("\\avl.cmd");
-	runname.append("\\test.run");
-	double d1 = 0;
-	double d2 = 0;
-	for (d1 = 0; d1 <= 0; d1 += 0.02)
-	{
-		for (d2 = -0.3; d2 <= -0.1; d2 += 0.02)
-		{
-			avlname = str;
-			stname = str;
-			temp = "";
-			temp.append("d1_");
-			temp.append(to_string(d1));
-			temp.append("d2_");
-			temp.append(to_string(d2));
-			v.set_name(temp);
-			W = *(new wing);
-			st = *(new sta);
-			draw_round(d1, d2);
-			F.build_avl(str, v, W, st);
-			avlname.append("\\");
-			avlname.append(temp);
-			avlname.append(".avl");
-			stname.append("\\");
-			stname.append(temp);
-			cout << cmdname.c_str() << endl;
-			F.build_cacfile(str, avlname, runname,stname);
-			SetCurrentDirectory(str.c_str());
-			system(cmdname.c_str());
-			//F.build_run(str, v);
-			//delete &W;
-			//delete &st;
-		}
-	}
-
-}
-void round_build2(std::string str)
-{
-	file_oper F;
-	//RemoveDirectory(str.c_str());
-	//CreateDirectory(str.c_str(), NULL);
-	string temp = "";
-	string avlname = str;
-	string runname = str;
-	string cmdname = str;
-	string inname = str;
-	string stname = str;
-	inname.append("\\cac.in");
-	cmdname.append("\\avl.cmd");
-	runname.append("\\test.run");
-	double d1 = 0;
-	double d2 = 0;
-	for (d1 = 0.02; d1 <= 0.02; d1 += 0.02)
-	{
-		for (d2 = -0.3; d2 <= -0.1; d2 += 0.02)
-		{
-			avlname = str;
-			stname = str;
-			temp = "";
-			temp.append("d1_");
-			temp.append(to_string(d1));
-			temp.append("d2_");
-			temp.append(to_string(d2));
-			v.set_name(temp);
-			W = *(new wing);
-			st = *(new sta);
-			draw_round(d1, d2);
-			F.build_avl(str, v, W, st);
-			avlname.append("\\");
-			avlname.append(temp);
-			avlname.append(".avl");
-			stname.append("\\");
-			stname.append(temp);
-			//cout << cmdname.c_str() << endl;
-			F.build_cacfile(str, avlname, runname,stname);
-			SetCurrentDirectory(str.c_str());
-			system(cmdname.c_str());
-			//F.build_run(str, v);
-			//delete &W;
-			//delete &st;
-		}
-	}
-
-}
-int main(int args, char argv[])
-{
-
+	var v;
 	v.set_Xref(0.131);
 	v.set_Yref(0.0);
 	v.set_Zref(0.04);
@@ -334,15 +244,172 @@ int main(int args, char argv[])
 	//W.fresh_data();
 	//W.updata2var(v);
 	v.fresh_var();
+
+	file_oper F;
+
+	int filecount = 1000;
+	string temp = "";
+	wing W;
+
+	sta st;
+
+	W = *(new wing);
+	st = *(new sta);
+	wing* wpoint = &W;
+	sta* stpoint = &st;
+
+	string newdir = str;
+	newdir.append(to_string(threadnum));
+	string avlexestr = str;
+	avlexestr.append("\\avl.exe");
+	string JSdatstr = str;
+	JSdatstr.append("\\JS.dat");
+	string NACA0012str = str;
+	NACA0012str.append("\\NACA0012.dat");
+	string NACA0030str = str;
+	NACA0030str.append("\\NACA0030.dat");
+	string NFstr  = str;
+	NFstr.append("\\NF.dat");
+	string testrunstr = str;
+	testrunstr.append("\\test.run");
+
+	int dircount = 0;
+	double hou1 = 0;
+	double threadend = 0;
+	double hou2 = 0;
+	double shang1 = 0;
+	double shang2 = 0;
+	switch (threadnum)
+	{
+	case 1:
+		threadend = -0.1;
+		break;
+	case 2:
+		threadend = 0.05;
+		break;
+	case 3:
+		threadend = 0.2;
+		break;
+	case 4:
+		threadend = 0.35;
+	default:
+		break;
+	}
+	int cout = 1;
+	string name = "";
+	for (hou1 = threadend; hou1 <= threadend + 0.1; hou1 += 0.05)
+	{//0.1 0.05 2     2
+		for (hou2 = -0.4; hou2 <= 0.4; hou2 += 0.05)
+		{//0.8 0.05 16     9
+			for (shang1 = -0.1; shang1 <= 0.2; shang1 += 0.05)
+			{// 0.25 0.05 5     4
+				for (shang2 = -0.1; shang2 <= 0.2; shang2 += 0.05)
+				{// 0.3 0.05 6    4
+
+					if (filecount >= 100)
+					{
+						newdir = str;
+						newdir.append(to_string(threadnum));
+						newdir.append("_");
+						newdir.append(to_string(dircount));
+						CreateDirectoryA(newdir.c_str(),NULL);
+						SetCurrentDirectory(newdir.c_str());
+						string newaavlexestr = newdir;
+						newaavlexestr.append("\\avl.exe");
+						string newJSdatstr = newdir;
+						newJSdatstr.append("\\JS.dat");
+						string newNACA0012str = newdir;
+						newNACA0012str.append("\\NACA0012.dat");
+						string newNACA0030str = newdir;
+						newNACA0030str.append("\\NACA0030.dat");
+						string newNFstr = newdir;
+						newNFstr.append("\\NF.dat");
+						string newtestrunstr = newdir;
+						newtestrunstr.append("\\test.run");
+						
+						CopyFileA(avlexestr.c_str(),newaavlexestr.c_str(), FALSE);
+						CopyFileA(JSdatstr.c_str(), newJSdatstr.c_str(), FALSE);
+						CopyFileA(NACA0012str.c_str(), newNACA0012str.c_str(), FALSE);
+						CopyFileA(NACA0030str.c_str(), newNACA0030str.c_str(), FALSE);
+						CopyFileA(NFstr.c_str(), newNFstr.c_str(), FALSE);
+						CopyFileA(testrunstr.c_str(), newtestrunstr.c_str(), FALSE);
+						F.build_cmd(newdir);
+
+						dircount++;
+						filecount = 0;
+					}
+					//std::cout << "thread: "<< threadnum << "  dir: " << dircount <<"   filecount: "<< hou1 << " count: "<<cout<<std:: endl;
+					string avlname = newdir;
+					string runname = newdir;
+					string cmdname = "";
+					string inname = newdir;
+					string stname = newdir;
+					
+					cmdname.append(newdir);
+					inname.append("\\cac.in");
+					cmdname.append("\\avl.cmd");
+					runname.append("\\test.run");
+
+					temp = "";
+					temp.append("winghoulue_");
+					temp.append(to_string(hou1));
+					temp.append("_");
+					temp.append("wingtiphoulue_");
+					temp.append(to_string(hou2));
+					temp.append("wingshangfan_");
+					temp.append(to_string(shang1));
+					temp.append("wingtipshangfan_");
+					temp.append(to_string(shang2));
+					name = "";
+					name.append(to_string(cout));
+					v.set_name(name);
+
+					wpoint = NULL;
+					stpoint = NULL;
+					wpoint = new wing;
+					stpoint = new sta;
+					W = *wpoint;
+					st = *stpoint;
+					
+
+					
+					draw_round(hou1, hou2, shang1, shang2,W ,st);
+					//std::cout << F.build_avl(newdir, v, W, st, temp) << std::endl;
+					avlname.append("\\");
+					avlname.append(to_string(cout));
+					avlname.append(".avl");
+					stname.append("\\");
+					stname.append(to_string(cout));
+					F.build_cacfile(newdir, avlname, runname, stname);
+					system(cmdname.c_str());
+					cout++;
+					filecount++;
+				}
+			}
+		}
+	}
+}
+
+int main(int args, char argv[])
+{
+
 	string str = { "D:\\MY_Flight_Dynamics\\double_houlue" };
-	string s1 = "D:\\MY_Flight_Dynamics\\double_houlue2";
-	string s2 = "D:\\MY_Flight_Dynamics\\double_houlue3";
-	//round_build(s1);
-	thread t1(round_build, s1);
-	thread t2(round_build2, s2);
+
+	thread t1(round_build, str, 1);
+	
+	thread t2(round_build, str, 2);
+	
+	thread t3(round_build, str, 3);
+	
+	thread t4(round_build, str, 4);
+	
+	//round_build(str,1);
 
 	t1.join();
 	t2.join();
+	t3.join();
+	t4.join();
+
 	system("pause");
 	return 0;
 }

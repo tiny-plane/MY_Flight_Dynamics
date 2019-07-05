@@ -14,13 +14,14 @@ protected:
 	FILE* file;
 	ofstream ofile;
 public:
-	void build_file(string filename);
+	bool build_file(string filename);
 	void finish_file();
 	void writefile(string str,int movement);
 	void writefile(string str);
 	void build_run(string filepath,var v);
-	void build_avl(string filepath,var v,wing w,sta st);
+	bool build_avl(string filepath,var v,wing w,sta st,string addition);
 	void build_cacfile(string filepath, string avlname,string runname,string stname);
-	void build_cmd(string filepath, string);
+	void build_cmd(string filepath);
 	FILE* get_file_point(void);
+	int CopyFile(char * SourceFile, char * NewFile);
 };

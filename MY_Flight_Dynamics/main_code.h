@@ -14,10 +14,7 @@
 template<class T>
 int length(T& arr);
 
-var v;
-wing W;
-sta st;
 int main(int args, char argv[]);
-bool Draw(void);
+bool Draw(wing& W,sta& st);
 bool Write2avl(void);
 bool Readfromavl;
