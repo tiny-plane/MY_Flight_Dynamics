@@ -14,7 +14,7 @@ public:
 	float angle_x = 0.0f;
 	float x = 0.0f, y = 1.75f, z = 5.0f;  //照相机位置
 	float lx = 0.0f, ly = 0.0f, lz = -1.0f; //一个向量用来指示我们的视线方向
-	float dep = 100.0f;
+	float dep = 55.0f;
 	float dep2 = 10;
 	int specialKey = 0;
 	int width = 200, height = 200;

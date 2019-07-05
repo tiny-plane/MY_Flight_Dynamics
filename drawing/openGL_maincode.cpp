@@ -699,14 +699,14 @@ void renderScene(void)
 
 		glBegin(GL_QUADS);
 		//glTexCoord2f(0.0f, 0.0f);
-		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glVertex3f(100.0f*(float)(next->pos[1] ) ,          100.0f*(float)(next->pos[2]) + (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))),           100.0f*(float)(next->pos[0]));
 		//glTexCoord2f(1.0f, 0.0f);
-		glVertex3f(100.0f*(float)(next->pos[1]) , 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		glVertex3f(100.0f*(float)(next->pos[1]),			100.0f*(float)(next->pos[2])- (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))),			(100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord)) * (float)cos((w.dec2rad(next->Get_ainc() + w.get_angle()))));
 		//glTexCoord2f(1.0f, 1.0f);
 		next = next->after;
-		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		glVertex3f(100.0f*(float)(next->pos[1]),			100.0f*(float)(next->pos[2]) + (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))),			(100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord))* (float)cos((w.dec2rad(next->Get_ainc() + w.get_angle()))));
 		//glTexCoord2f(0.0f, 1.0f);
-		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glVertex3f(100.0f*(float)(next->pos[1]),			100.0f*(float)(next->pos[2]) - (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))),			100.0f*(float)(next->pos[0]));
 		glEnd();
 	}
 	next = w.orisection;
@@ -715,14 +715,14 @@ void renderScene(void)
 
 		glBegin(GL_QUADS);
 		//glTexCoord2f(0.0f, 0.0f);
-		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) + (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), 100.0f*(float)(next->pos[0]));
 		//glTexCoord2f(1.0f, 0.0f);
-		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) - (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), (100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord)) * (float)cos((w.dec2rad(next->Get_ainc() + w.get_angle()))));
 		//glTexCoord2f(1.0f, 1.0f);
 		next = next->after;
-		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) + (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), (100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord))* (float)cos((w.dec2rad(next->Get_ainc() + w.get_angle()))));
 		//glTexCoord2f(0.0f, 1.0f);
-		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) - (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), 100.0f*(float)(next->pos[0]));
 		glEnd();
 	}
 	next = st.orisection;
@@ -731,30 +731,29 @@ void renderScene(void)
 
 		glBegin(GL_QUADS);
 		//glTexCoord2f(0.0f, 0.0f);
-		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) + (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), 100.0f*(float)(next->pos[0]));
 		//glTexCoord2f(1.0f, 0.0f);
-		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) - (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), (100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord)) * (float)cos((w.dec2rad(next->Get_ainc() + w.get_angle()))));
 		//glTexCoord2f(1.0f, 1.0f);
 		next = next->after;
-		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) + (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), (100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord))* (float)cos((w.dec2rad(next->Get_ainc() + w.get_angle()))));
 		//glTexCoord2f(0.0f, 1.0f);
-		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) - (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), 100.0f*(float)(next->pos[0]));
 		glEnd();
 	}
 	next = st.orisection;
 	for (int i = 1; i < st.get_slices(); i++)
 	{
-
 		glBegin(GL_QUADS);
 		//glTexCoord2f(0.0f, 0.0f);
-		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) + (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), 100.0f*(float)(next->pos[0]));
 		//glTexCoord2f(1.0f, 0.0f);
-		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) - (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), (100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord)) * (float)cos((w.dec2rad(next->Get_ainc() + w.get_angle()))));
 		//glTexCoord2f(1.0f, 1.0f);
 		next = next->after;
-		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) + (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), (100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord))* (float)cos((w.dec2rad(next->Get_ainc() + w.get_angle()))));
 		//glTexCoord2f(0.0f, 1.0f);
-		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]) - (float)sin((w.dec2rad(next->Get_ainc() + w.get_angle()))), 100.0f*(float)(next->pos[0]));
 		glEnd();
 	}
 }
