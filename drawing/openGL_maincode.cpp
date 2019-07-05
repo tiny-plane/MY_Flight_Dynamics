@@ -957,9 +957,9 @@ void main(int argc, char* argv[])
 	
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);  //设置格式
-	glutInitWindowSize(800, 600);      //窗口大小	
-	glutInitWindowPosition(200, 200);  // 初始窗口位置
-	glutCreateWindow("自行车");   //创建窗口，命名
+	glutInitWindowSize(1000, 800);      //窗口大小	
+	glutInitWindowPosition(20, 20);  // 初始窗口位置
+	glutCreateWindow("飞机可视化");   //创建窗口，命名
 
 	//glEnable(GL_DEPTH_TEST);    //开启深度测试，实现前后遮挡显示
 	glutIdleFunc(idleDisplay);   //空闲时调用	                    
