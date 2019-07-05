@@ -30,7 +30,22 @@
     <ClCompile Include="openGL_maincode.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="var.cpp">
+    <ClCompile Include="..\MY_Flight_Dynamics\section.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MY_Flight_Dynamics\sta.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MY_Flight_Dynamics\surface.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MY_Flight_Dynamics\var.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MY_Flight_Dynamics\wing.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vari.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +62,25 @@
     <ClInclude Include="openGL_maincode.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="var.h">
+    <ClInclude Include="..\MY_Flight_Dynamics\control_surface.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vari.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MY_Flight_Dynamics\section.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MY_Flight_Dynamics\sta.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MY_Flight_Dynamics\surface.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MY_Flight_Dynamics\var.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MY_Flight_Dynamics\wing.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

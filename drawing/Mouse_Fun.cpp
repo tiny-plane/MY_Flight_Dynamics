@@ -5,7 +5,7 @@ using namespace std;
 
 Mouse_Fun::Mouse_Fun(void)
 {}
-void Mouse_Fun::processMouse_Clicks(int button, int state, int x, int y, var& v)
+void Mouse_Fun::processMouse_Clicks(int button, int state, int x, int y, vari& v)
 //改变视线的距离
 {
 	if (button == GLUT_WHEEL_UP)
@@ -23,7 +23,7 @@ void Mouse_Fun::processMouse_Clicks(int button, int state, int x, int y, var& v)
 		v.specialKey = button;
 	}
 }
-void Mouse_Fun::processMouse_ActiveMotion(int x, int y, var& v)
+void Mouse_Fun::processMouse_ActiveMotion(int x, int y, vari& v)
 {
 	//实现鼠标按下的旋转
 	if (v.specialKey == GLUT_LEFT_BUTTON) {
@@ -94,13 +94,13 @@ void Mouse_Fun::processMouse_ActiveMotion(int x, int y, var& v)
 
 	}
 }
-void Mouse_Fun::processMouse_PassiveMotion(int x, int y, var& v)
+void Mouse_Fun::processMouse_PassiveMotion(int x, int y, vari& v)
 {
 	if (v.specialKey == GLUT_ACTIVE_SHIFT) {
 
 	}
 }
-void Mouse_Fun::processMouse_Entry(int state, var& v)
+void Mouse_Fun::processMouse_Entry(int state, vari& v)
 {
 	if (state == GLUT_LEFT)
 		v.deltaAngle = 0.0;

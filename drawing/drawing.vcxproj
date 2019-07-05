@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CB028669-FFA8-4FBA-AC12-C5C37F2F27FA}</ProjectGuid>
     <RootNamespace>drawing</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <ProjectName>Drawing</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -34,7 +34,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -122,18 +122,29 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\MY_Flight_Dynamics\section.cpp" />
+    <ClCompile Include="..\MY_Flight_Dynamics\sta.cpp" />
+    <ClCompile Include="..\MY_Flight_Dynamics\surface.cpp" />
+    <ClCompile Include="..\MY_Flight_Dynamics\var.cpp" />
+    <ClCompile Include="..\MY_Flight_Dynamics\wing.cpp" />
     <ClCompile Include="base.cpp" />
     <ClCompile Include="Keybord_Fun.cpp" />
     <ClCompile Include="Mouse_Fun.cpp" />
     <ClCompile Include="openGL_maincode.cpp" />
-    <ClCompile Include="var.cpp" />
+    <ClCompile Include="vari.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\MY_Flight_Dynamics\control_surface.h" />
+    <ClInclude Include="..\MY_Flight_Dynamics\section.h" />
+    <ClInclude Include="..\MY_Flight_Dynamics\sta.h" />
+    <ClInclude Include="..\MY_Flight_Dynamics\surface.h" />
+    <ClInclude Include="..\MY_Flight_Dynamics\var.h" />
+    <ClInclude Include="..\MY_Flight_Dynamics\wing.h" />
     <ClInclude Include="base.h" />
     <ClInclude Include="Keybord_Fun.h" />
     <ClInclude Include="Mouse_Fun.h" />
     <ClInclude Include="openGL_maincode.h" />
-    <ClInclude Include="var.h" />
+    <ClInclude Include="vari.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

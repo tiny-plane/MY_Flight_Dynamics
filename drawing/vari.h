@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class var : public base
+class vari : public base
 {
 public:
 	float red = 0.0f, blue = 0.0f, green = 0.0f;
@@ -35,6 +35,6 @@ public:
 	bool enable_DEPTH = false;
 	bool enable_SMOOTH = true;
 	float dis_road = 0.0f;
-	var(void);
+	vari(void);
 	void ChangeColor(float red, float green, float blue);
 };

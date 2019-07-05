@@ -8,9 +8,28 @@
 #include <stdlib.h>
 #include <math.h>
 #include "Mouse_Fun.h"
-#include "var.h"
+#include "vari.h"
+#include <iostream>
+#include <math.h>
+#include "D:\MY_Flight_Dynamics\MY_Flight_Dynamics\MY_Flight_Dynamics\var.h"
+#include "D:\MY_Flight_Dynamics\MY_Flight_Dynamics\MY_Flight_Dynamics\surface.h"
+#include "D:\MY_Flight_Dynamics\MY_Flight_Dynamics\MY_Flight_Dynamics\wing.h"
+#include "D:\MY_Flight_Dynamics\MY_Flight_Dynamics\MY_Flight_Dynamics\sta.h"
+#include <string>
+#include <fstream>
+#include <windows.h>
+#include <thread>
+#pragma warning(disable:4996)
 #define BMP_Header_Length 54  //图像数据在内存块中的偏移量
 
+
+template<class T>
+int length(T& arr);
+	wing w;
+	sta st;
+bool Draw(wing& W, sta& st);
+bool Write2avl(void);
+bool Readfromavl;
 GLfloat ctrlpoints[4][4][3] = {
 	{ { -5, -5, 1 },
 	{ -5, -5, 2 },
@@ -42,7 +61,7 @@ GLuint texTree1;
 GLuint texWood;
 GLUnurbsObj *theNurb;
 float angle = 1.0f;
-var v = var();
+vari v = vari();
 Mouse_Fun M = Mouse_Fun();
 double x11 = 0.0, y11 = 100.0, z11 = 300.0;
 double x22 = 0.0, y22 = 0.0, z22 = -10.0;
@@ -59,7 +78,7 @@ void Circle();
 void centreline(float length, float xo, float yo, float zo, bool xd, bool yd, bool zd);
 void cyLinder(float x0, float y0, float z0, float x1, float y1, float z1, double radius,GLuint tex, GLint slices, GLint stack);
 void cyLinder(float x0, float y0, float z0, float x1, float y1, float z1, double radius);
-void renderScene(void);
+void renderScene(wing& w,sta& st);
 void renderScene_ori(void);
 void Display(void);
 void idleDisplay(void);

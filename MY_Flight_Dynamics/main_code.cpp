@@ -130,34 +130,22 @@ void draw_round(double houlue, double yishaohoulue, double shangfan, double yish
 	//1
 	section* news;
 	news = new section;
-	pos[0] = -0.14;
+	pos[0] = 0.0;
 	pos[1] = 0.0;
 	pos[2] = 0.0;
 	news->Set_pos(pos);
-	news->Set_chord(0.55);
+	news->Set_chord(0.3);
 	news->Set_ainc(2.5);
 	news->Set_Nspan(5);
-	news->Set_Sspace(0);
+	news->Set_Sspace(1);
 	news->Set_afil_type(1);
-	news->Set_afil_afilname(std::string("JS.dat"));
+	news->Set_afil_afilname(std::string("NF.dat"));
 	W.init_section(*news);
-	//2
-	news = new section;
-	pos[0] = -0.065;
-	pos[1] = 0.04;
-	pos[2] = 0.0;
-	news->Set_pos(pos);
-	news->Set_chord(0.4);
-	news->Set_ainc(2.5);
-	news->Set_Nspan(3);
-	news->Set_Sspace(0);
-	news->Set_afil_type(1);
-	news->Set_afil_afilname(std::string("NACA0030.dat"));
-	W.append_section(*news);
+
 	//3
 	news = new section;
 	pos[0] = 0.0;
-	pos[1] = 0.0648;
+	pos[1] = 0.1;
 	pos[2] = 0.0;
 	news->Set_pos(pos);
 	news->Set_chord(0.30);
@@ -374,7 +362,7 @@ void round_build(std::string str, int threadnum)
 
 					
 					draw_round(hou1, hou2, shang1, shang2,W ,st);
-					//std::cout << F.build_avl(newdir, v, W, st, temp) << std::endl;
+					std::cout << F.build_avl(newdir, v, W, st, temp) << std::endl;
 					avlname.append("\\");
 					avlname.append(to_string(cout));
 					avlname.append(".avl");

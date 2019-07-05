@@ -12,7 +12,105 @@
 #pragma warning(disable:4996)
 using namespace std;
 
+bool Draw(wing& W, sta& st)
+{
+	double pos[3] = { 0.0 ,0.0 , 0.0 };
 
+	W.set_index(3);
+	W.set_angle(3);
+	W.set_name(string("main wing"));
+	W.set_Nchord(11);
+	//1
+	section* news;
+	news = new section;
+	pos[0] = 0.0;
+	pos[1] = 0.0;
+	pos[2] = 0.0;
+	news->Set_pos(pos);
+	news->Set_chord(0.3);
+	news->Set_ainc(2.5);
+	news->Set_Nspan(5);
+	news->Set_Sspace(1);
+	news->Set_afil_type(1);
+	news->Set_afil_afilname(std::string("NF.dat"));
+	W.init_section(*news);
+
+	//3
+	news = new section;
+	pos[0] = 0.0;
+	pos[1] = 0.1;
+	pos[2] = 0.0;
+	news->Set_pos(pos);
+	news->Set_chord(0.30);
+	news->Set_ainc(2.5);
+	news->Set_Nspan(25);
+	news->Set_Sspace(1);
+	news->Set_afil_type(1);
+	news->Set_afil_afilname(std::string("NF.dat"));
+	W.append_section(*news);
+	//4
+	news = new section;
+	pos[0] = 0.1083 ;
+	pos[1] = 1.5916;
+	pos[2] = 0.1550 ;
+	news->Set_pos(pos);
+	news->Set_chord(0.3);
+	news->Set_ainc(-0.5);
+	news->Set_Nspan(8);
+	news->Set_Sspace(1);
+	news->Set_afil_type(1);
+	news->Set_afil_afilname(std::string("NF.dat"));
+	W.append_section(*news);
+
+	//5
+	news = new section;
+	pos[0] = 0.2513;
+	pos[1] = 1.7448;
+	pos[2] = 0.0188 ;
+	news->Set_pos(pos);
+	news->Set_chord(0.1);
+	news->Set_ainc(0.0);
+	news->Set_Nspan(8);
+	news->Set_Sspace(0);
+	news->Set_afil_type(1);
+	news->Set_afil_afilname(std::string("NF.dat"));
+	W.append_section(*news);
+
+
+	st.set_name(std::string("vsta"));
+	st.set_index(4);
+	st.set_angle(0);
+	st.set_Nchord(11);
+
+	//1
+	news = new section;
+	pos[0] = 0.45;
+	pos[1] = 0.0;
+	pos[2] = 0.0;
+	news->Set_pos(pos);
+	news->Set_chord(0.22);
+	news->Set_ainc(0.0);
+	news->Set_Nspan(10);
+	news->Set_Sspace(0);
+	news->Set_afil_type(1);
+	news->Set_afil_afilname(std::string("NACA0012.dat"));
+	st.init_section(*news);
+	//2
+	news = new section;
+	pos[0] = 0.65;
+	pos[1] = 0.23;
+	pos[2] = -0.0002;
+	news->Set_pos(pos);
+	news->Set_chord(0.08);
+	news->Set_ainc(-0.5);
+	news->Set_Nspan(10);
+	news->Set_Sspace(0);
+	news->Set_afil_type(1);
+	news->Set_afil_afilname(std::string("NACA0012.dat"));
+	st.append_section(*news);
+
+	return false;
+}
 int power_of_two(int n)
 {
 	// 用于判断一个整数是不是2的整数次幂
@@ -53,7 +151,7 @@ void ChangeSize(int w, int h)
 	v.ratio = (float)w / (float)h;
 	glViewport(0, 0, w, h);
 }
-void createGLUTMenus(var& v)
+void createGLUTMenus(vari& v)
 {
 	int menu_rotate, menu_color, menu_drawkind, menu_speed, menu,menu_set;
 	// 创建菜单并告诉GLUT，processMenuEvents处理菜单事件。
@@ -586,7 +684,79 @@ void renderScene_ori(void)
 }
 void renderScene(void)
 {
+	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_DEPTH_BUFFER_BIT);
 
+	glClearColor(v.red, v.green, v.blue, 0.0f);
+	glRotatef(angle + v.angle_x, 0.0f, 1.0f, 0.0f);
+	glRotatef(v.angle_y, 1.0f, 0.0f, 0.0f);
+	centreline(100.0f, 0.0f, 0.0f, 0.0f, true, true, true);
+	section* next;
+	next = w.orisection;
+	
+	for (int i = 1; i < w.get_slices(); i++)
+	{		
+
+		glBegin(GL_QUADS);
+		//glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		//glTexCoord2f(1.0f, 0.0f);
+		glVertex3f(100.0f*(float)(next->pos[1]) , 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		//glTexCoord2f(1.0f, 1.0f);
+		next = next->after;
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		//glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glEnd();
+	}
+	next = w.orisection;
+	for (int i = 1; i < w.get_slices(); i++)
+	{
+
+		glBegin(GL_QUADS);
+		//glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		//glTexCoord2f(1.0f, 0.0f);
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		//glTexCoord2f(1.0f, 1.0f);
+		next = next->after;
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		//glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glEnd();
+	}
+	next = st.orisection;
+	for (int i = 1; i < st.get_slices(); i++)
+	{
+
+		glBegin(GL_QUADS);
+		//glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		//glTexCoord2f(1.0f, 0.0f);
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		//glTexCoord2f(1.0f, 1.0f);
+		next = next->after;
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		//glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glEnd();
+	}
+	next = st.orisection;
+	for (int i = 1; i < st.get_slices(); i++)
+	{
+
+		glBegin(GL_QUADS);
+		//glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		//glTexCoord2f(1.0f, 0.0f);
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		//glTexCoord2f(1.0f, 1.0f);
+		next = next->after;
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]) + 100.0f*(float)(next->chord));
+		//glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(-100.0f*(float)(next->pos[1]), 100.0f*(float)(next->pos[2]), 100.0f*(float)(next->pos[0]));
+		glEnd();
+	}
 }
 void Display(void)
 {
@@ -806,7 +976,8 @@ void main(int argc, char* argv[])
 	createGLUTMenus(v);
 	v.speed = 1.0f;
 
-	Init();
+	Draw(w,st);
+	//Init();
 
 	texTree1 = load_texture("tree1.bmp"); //加载纹理
 	texWood = load_texture("Wood.bmp");

@@ -1,6 +1,6 @@
 #pragma once
 #include <gl/glut.h>
-#include "var.h"
+#include "vari.h"
 #include <iostream>
 #include "base.h"
 
@@ -12,8 +12,8 @@ class Mouse_Fun : public base
 {
 public:
 	Mouse_Fun(void);
-	void processMouse_Clicks(int button, int state, int x, int y, var& v);
-	void processMouse_ActiveMotion(int x, int y, var& v);
-	void processMouse_PassiveMotion(int x, int y, var& v);
-	void processMouse_Entry(int state, var& v);
+	void processMouse_Clicks(int button, int state, int x, int y, vari& v);
+	void processMouse_ActiveMotion(int x, int y, vari& v);
+	void processMouse_PassiveMotion(int x, int y, vari& v);
+	void processMouse_Entry(int state, vari& v);
 };
