@@ -1,6 +1,6 @@
 #include "section.h"
 
-void section::Set_afil_type(double type)
+void section::Set_afil_type(int type)
 {
 	this->afil.type = type;
 }

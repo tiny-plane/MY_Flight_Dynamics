@@ -93,7 +93,7 @@ public:
 	{
 		this->ainc = ainc;
 	}
-	void Set_afil_type(double kind);
+	void Set_afil_type(int kind);
 	void Set_afil_afilname(std::string name);
 	bool Add_control(control_surface* control)
 	{

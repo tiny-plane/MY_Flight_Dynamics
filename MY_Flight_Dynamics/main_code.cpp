@@ -269,6 +269,32 @@ void round_build(std::string str, int threadnum)
 	double shang2 = 0;
 	switch (threadnum)
 	{
+	/*case 1:
+		threadend = -0.1;
+		break;
+	case 2:
+		threadend = -0.04;
+		break;
+	case 3:
+		threadend = 0.02;
+		break;
+	case 4:
+		threadend = 0.08;
+		break;
+	case 5:
+		threadend = 0.14;
+		break;
+	case 6:
+		threadend = 0.20;
+		break;
+	case 7:
+		threadend = 0.26;
+		break;
+	case 8:
+		threadend = 0.32;
+		break;
+	default:
+		break;*/
 	case 1:
 		threadend = -0.1;
 		break;
@@ -280,19 +306,19 @@ void round_build(std::string str, int threadnum)
 		break;
 	case 4:
 		threadend = 0.35;
-	default:
 		break;
+
 	}
 	int cout = 1;
 	string name = "";
 	for (hou1 = threadend; hou1 <= threadend + 0.1; hou1 += 0.05)
-	{//0.1 0.05 2     2
-		for (hou2 = -0.4; hou2 <= 0.4; hou2 += 0.05)
-		{//0.8 0.05 16     9
-			for (shang1 = -0.1; shang1 <= 0.2; shang1 += 0.05)
-			{// 0.25 0.05 5     4
-				for (shang2 = -0.1; shang2 <= 0.2; shang2 += 0.05)
-				{// 0.3 0.05 6    4
+	{//0.1 0.05 2     3
+		for (hou2 = -0.4; hou2 <= 0.4; hou2 += 0.02)
+		{//0.8 0.05 41     
+			for (shang1 = -0.04; shang1 <= 0.2; shang1 += 0.02)
+			{// 0.25 0.05 13    
+				for (shang2 = -0.1; shang2 <= 0.4; shang2 += 0.02)
+				{// 0.3 0.05 26   
 
 					if (filecount >= 100)
 					{
@@ -390,6 +416,19 @@ int main(int args, char argv[])
 	thread t3(round_build, str, 3);
 	
 	thread t4(round_build, str, 4);
+
+	/*thread t5(round_build, str, 5);
+
+	thread t6(round_build, str, 6);
+
+	thread t7(round_build, str, 7);
+
+	thread t8(round_build, str, 8);*/
+
+
+
+
+
 	
 	//round_build(str,1);
 
@@ -397,6 +436,10 @@ int main(int args, char argv[])
 	t2.join();
 	t3.join();
 	t4.join();
+	/*t5.join();
+	t6.join();
+	t7.join();
+	t8.join();*/
 
 	system("pause");
 	return 0;
