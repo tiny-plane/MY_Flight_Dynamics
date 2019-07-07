@@ -118,10 +118,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ann_bp.cpp" />
     <ClCompile Include="BpNet.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ann_bp.h" />
     <ClInclude Include="BpNet.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
