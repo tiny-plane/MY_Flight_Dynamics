@@ -14,4 +14,83 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aileron.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Control_surface.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Datast.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Designpoint.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="elevator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="interpolation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Nothrust.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Para.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Propeller.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="propellerdifferetialmotion.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="propellerthrust.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="QAR.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="rudder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Thrust.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Control_surface_lon.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Datast.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Designpoint.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="elevator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="interpolation.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Para.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Propeller.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="propellerthrust.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="QAR.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rudder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

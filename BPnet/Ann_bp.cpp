@@ -1,4 +1,3 @@
-//ann_bp.cpp//
 #include "ann_bp.h"
 #include <math.h>
 

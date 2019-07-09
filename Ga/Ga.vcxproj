@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A0E2BD7A-E9FB-43A8-8D49-6D18103A1B6F}</ProjectGuid>
-    <RootNamespace>QAR</RootNamespace>
+    <ProjectGuid>{522D188A-D6EF-45E1-A73C-74A0E9DA17B7}</ProjectGuid>
+    <RootNamespace>Ga</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -40,13 +40,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -118,33 +118,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="aileron.h" />
-    <ClInclude Include="Control_surface.h" />
-    <ClInclude Include="Datast.h" />
-    <ClInclude Include="Designpoint.h" />
-    <ClInclude Include="elevator.h" />
-    <ClInclude Include="interpolation.h" />
-    <ClInclude Include="Nothrust.h" />
-    <ClInclude Include="Para.h" />
-    <ClInclude Include="Propeller.h" />
-    <ClInclude Include="propellerdifferetialmotion.h" />
-    <ClInclude Include="propellerthrust.h" />
-    <ClInclude Include="QAR.h" />
-    <ClInclude Include="rudder.h" />
-    <ClInclude Include="Thrust.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Control_surface_lon.cpp" />
-    <ClCompile Include="Datast.cpp" />
-    <ClCompile Include="Designpoint.cpp" />
-    <ClCompile Include="elevator.cpp" />
-    <ClCompile Include="interpolation.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Para.cpp" />
-    <ClCompile Include="Propeller.cpp" />
-    <ClCompile Include="propellerthrust.cpp" />
-    <ClCompile Include="QAR.cpp" />
-    <ClCompile Include="rudder.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
